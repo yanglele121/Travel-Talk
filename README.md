@@ -5,7 +5,21 @@
 <img src="assets/functions.png" alt="Image Description" width="640" height="573">
 
 ### 技术栈
-1. **前端**：
-  `- vue`
-  `- jquery`
-  `- `
+- **前端：**
+  - `Vue`
+  - `Axios`
+  - `Element UI`
+  - `Font Awesome(图标)`
+  - `V-region(城市区域选择器)`
+  - `Vue-waterfall-easy(瀑布流插件)`
+  - `Echarts(可视化工具)`
+- **后端：**
+  - `SpringBoot`
+  - `Mybatis`
+  - `MySQL`
+  - `JWT`
+  - `PageHelper(分页插件)`
+  - `Redis`
+  - `Lombook`
+- **接口：**
+  - `腾讯域名解析`
