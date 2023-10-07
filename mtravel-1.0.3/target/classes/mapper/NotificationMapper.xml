@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.NotificationMapper">
+    <select id="getMyNotification" resultType="NotificationBean">
+        SELECT * FROM sysnotification  WHERE user_id=#{userId} ORDER BY create_date DESC
+    </select>
+
+    <select id="checkUserIdNotification" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM user_notification WHERE user_id=#{userId}
+    </select>
+
+    <insert id="insertUserIdNotification">
+        INSERT INTO user_notification(user_id, unread_count) VALUES(#{userId},1);
+    </insert>
+
+    <update id="updateUnreadCount">
+        update user_notification set unread_count=unread_count + #{flag} where user_id=#{userId}
+    </update>
+
+
+
+    <insert id="addNotification" parameterType="NotificationBean">
+        INSERT INTO sysnotification(user_id, title, realated_article, create_date, content)
+        VALUES(#{userId},#{title},#{relatedArticle},#{createDate},#{content})
+    </insert>
+
+    <select id="getMyUnreadCount" resultType="java.lang.Integer">
+        SELECT unread_count FROM user_notification WHERE user_id=#{userId}
+    </select>
+
+</mapper>

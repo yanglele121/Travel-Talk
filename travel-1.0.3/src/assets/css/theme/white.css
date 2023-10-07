@@ -1,0 +1,23 @@
+:root {
+    --bg:#f2f2f2;
+    --bg_darken: #e2e2e2;
+    --card_bg: white;
+
+    --active:#00bfb2;
+    --font_1: #333;
+    --font_2: #555;
+    --font_3: #777;
+    --font_del: #dd6161;
+    --nav_bg: white;
+    --nav_color: #333;
+    --nav_bg: azure;
+
+    --main_bg: rgb(238, 236, 236);
+    --main_color: #333;
+
+    --footer_bg: white;
+    --footer_color: #333;
+    --ele_bg: var(--card_bg);
+
+    --aside:#d8ad7e
+}

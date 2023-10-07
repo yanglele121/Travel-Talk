@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.UserLikePicAlbumMapper">
+    <select id="isLiked" resultType="java.lang.Integer">
+        select count(*) from user_like_picalbum where user_id=#{userId} and picalbum_id=#{picAlbumId}
+    </select>
+
+    <insert id="addLike">
+        insert into user_like_picalbum(user_id, picalbum_id) VALUES (#{userId},#{picAlbumId})
+    </insert>
+
+    <delete id="delLike">
+        delete from user_like_picalbum where user_id=#{userId} and picalbum_id=#{picAlbumId}
+    </delete>
+
+    <delete id="delPicAlbum">
+        delete from user_like_picalbum where picalbum_id=#{picAlbumId}
+    </delete>
+</mapper>

@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    name: mtravel2
+    url: jdbc:mysql://localhost:3306/mtravel2?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+#    url: jdbc:mysql://localhost:3306/mtravel2?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+#    username: root
+    username: root
+    password: 111111
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+#    host:
+    port: 6379
+#    host: 43.143.177.110
+#    password: 111111
+  servlet:
+    multipart:
+      max-file-size: 10MB
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.travel.bean
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 8080
+#  servlet:
+#    context-path: /api
+#分页pageHelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+

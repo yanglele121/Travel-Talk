@@ -1,0 +1,47 @@
+nav {
+    width: calc(100% - 240px);
+    height: 60px;
+    //background-color: transparent;
+    display: flex;
+    align-items: center;
+    padding: 0 120px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all 0.4s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    // background-color:var(--nav_bg);
+    background-color: var(--nav_bg);  
+    .left {
+      width: 70%;
+    }
+  
+    .right {
+      width: 30%;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      .el-dropdown {
+        color: var(--card_bg);
+        font-size: 14px;
+  
+        span {
+          cursor: pointer;
+        }
+      }
+    }
+  
+    a {
+      margin-right: 20px;
+      color: #000;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  
+    a.active {
+      color: var(--active);
+    }
+  }

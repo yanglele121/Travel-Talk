@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.ArticleMapper">
+
+    <select id="AdminGetArticleList" resultType="ArticleBean">
+        SELECT * FROM articles
+    </select>
+    <select id="getArticleByTitle" resultType="ArticleBean">
+        SELECT * FROM articles WHERE article_title=#{articleTitle}
+    </select>
+
+    <select id="getArticleList" resultType="ArticleBean">
+        SELECT * FROM articles where article_status!=0
+    </select>
+
+    <select id="ArticleCount" resultType="java.lang.Integer">
+        select count(*) from articles where article_author=#{articleAuthor} and article_status=1
+    </select>
+    <select id="RecommendArticles" resultType="ArticleBean">
+        select * from articles where article_recommend=1 and article_status =1 order by look_count  desc, create_date desc limit 5
+    </select>
+
+    <select id="RandomArticles" resultType="ArticleBean">
+        select * from articles where article_status=1 order by rand() limit 1
+    </select>
+    <select id="getArticleByNid" resultType="ArticleBean">
+        SELECT * FROM articles WHERE article_nid = #{articleNid}
+    </select>
+
+    <select id="getArticleBySiteId" resultType="ArticleBean">
+        SELECT * FROM articles WHERE site_id=#{siteId} AND article_status=1
+    </select>
+
+    <select id="getArticleListByAuthor" resultType="ArticleBean">
+        SELECT * FROM articles
+        <where>
+            <if test="user_name!=null">
+                and article_author in (select user_name from userinfo
+                where user_nid=#{userNid}
+                )
+            </if>
+        </where>
+
+    </select>
+
+    <!--模糊查询-->
+    <select id="getArticleListByAuthorName" resultType="ArticleBean">
+        SELECT * FROM articles WHERE article_author LIKE CONCAT('%', #{authorName}, '%')
+    </select>
+
+    <select id="getArticleListByTitle" resultType="ArticleBean">
+        SELECT * FROM articles WHERE article_title LIKE CONCAT('%', #{articleTitle}, '%')
+    </select>
+
+    <select id="getArticleListByStatus" resultType="ArticleBean">
+        SELECT * FROM articles WHERE article_status=#{articleStatus}
+    </select>
+
+    <select id="getArticleListByRecommend" resultType="ArticleBean">
+        SELECT * FROM articles WHERE article_recommend=#{articleRecommend}
+    </select>
+
+    <insert id="addArticle"  useGeneratedKeys="true" keyProperty="articleNid">
+        INSERT INTO articles(article_title, article_abstract, article_content, article_author, cover_url,
+                             article_recommend, look_count, star_count, collected_count, comment_count,
+                             create_date, article_status, site_id)
+        VALUES (#{articleTitle},#{articleAbstract},#{articleContent},#{articleAuthor},#{coverUrl},
+                #{articleRecommend},#{lookCount},#{starCount},#{collectedCount},#{commentCount},
+                #{createDate},#{articleStatus},#{siteId});
+    </insert>
+
+    <update id="updateArticle" parameterType="ArticleBean">
+        UPDATE articles SET article_title = #{articleTitle}, article_abstract = #{articleAbstract}, article_content = #{articleContent}, article_author = #{articleAuthor}, cover_url = #{coverUrl},
+                            article_recommend = #{articleRecommend}, look_count = #{lookCount}, star_count = #{starCount}, collected_count = #{collectedCount}, comment_count = #{commentCount},
+                            create_date = #{createDate}, article_status = #{articleStatus}, site_id = #{siteId}
+                        WHERE article_nid = #{articleNid};
+    </update>
+
+    <delete id="deleteArticleByNid" parameterType="int">
+        DELETE FROM articles WHERE article_nid = #{articleNid};
+    </delete>
+
+    <select id="getArticleNum" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM articles
+    </select>
+</mapper>

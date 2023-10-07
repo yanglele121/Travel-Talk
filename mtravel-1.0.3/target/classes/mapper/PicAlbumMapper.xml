@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.PicAlbumMapper">
+
+    <select id="getPicAlbumList" resultType="PicAlbumBean">
+        SELECT * FROM picalbum
+    </select>
+
+    <select id="getPicAlbumByNid" resultType="PicAlbumBean">
+        SELECT * FROM picalbum WHERE picalbum_nid = #{picAlbumNid}
+    </select>
+
+    <select id="getPicAlbumListByUserNid" resultType="PicAlbumBean">
+        SELECT * FROM picalbum WHERE user_id = #{userNid}
+    </select>
+
+    <insert id="addPicAlbum" >
+        INSERT INTO picalbum(user_id,picalbum_content,img_url,like_count)
+        VALUES (#{userId},#{picalbumContent},#{imgUrl},#{likeCount});
+    </insert>
+
+    <update id="updatePicAlbum" parameterType="PicAlbumBean">
+        UPDATE picalbum SET user_id = #{userId}, picalbum_content = #{picalbumContent},
+                            img_url = #{imgUrl}, like_count = #{likeCount}
+        WHERE picalbum_nid = #{picalbumNid};
+    </update>
+
+    <delete id="deletePicAlbumByPicAlbumNid" parameterType="int">
+        DELETE FROM picalbum WHERE picalbum_nid = #{picalbumNid};
+    </delete>
+</mapper>

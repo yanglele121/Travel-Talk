@@ -1,0 +1,33 @@
+.content-box {
+    position: absolute;
+    left: 150px;
+    right: 0;
+    top: 20px;
+    bottom: 0;
+    overflow-y: scroll;
+    transition: left 0.3s ease-in-out;
+    padding: 20px;
+    position: absolute;
+    -webkit-transition: left .3s ease-in-out;
+    transition: left .3s ease-in-out;
+    background: #f0f0f0;
+  }
+.container
+{
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    .handle-box
+    {
+        margin-bottom: 10px;
+        .el-input
+        {
+            width: 300px;
+            margin-right: 10px;
+        }
+    }
+}
+.red{
+    color: #F56C6C;
+}

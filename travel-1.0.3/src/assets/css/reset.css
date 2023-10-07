@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+p {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.flex.center {
+    justify-content: center;
+}
+
+.flex.item_center{
+    align-items: center;
+}
+/**修改全局的滚动条*/
+/**滚动条的宽度*/
+::-webkit-scrollbar {
+	width: 8px;
+}
+::-webkit-scrollbar-thumb {
+	background-color:  rgba(144,147,153,.3);
+	border-radius: 3px;
+}
+/*表格*/
+.el-table__body-wrapper::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+.el-table__body-wrapper::-webkit-scrollbar-thumb {
+	background-color: #a1a3a9;
+	border-radius: 3px;
+}
+
+.el-badge__content.is-fixed{
+    background-color: var(--active);
+}
+

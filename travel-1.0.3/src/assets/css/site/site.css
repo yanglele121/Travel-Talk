@@ -1,0 +1,87 @@
+.right {
+  max-height: 600px;
+  padding-right: 7.5px;
+}
+.right .top {
+  margin-bottom: 35px;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+.right .top .left {
+  width: 50%;
+}
+.right .top .left img {
+  width: 100%;
+  height: 100%;
+}
+.right .top .right {
+  text-align: left;
+  width: 49%;
+  padding: 0;
+}
+.right .top .right > p:nth-child(6) {
+  height: 114px;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.right .bottom ul > li {
+  height: 200px;
+  box-sizing: border-box;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  border-bottom: solid 3px var(--main_bg);
+  margin-top: 5px;
+}
+.right .bottom ul > li .left {
+  width: 40%;
+}
+.right .bottom ul > li .left img {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.right .bottom ul > li .right {
+  width: 59%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.right .bottom ul > li .right > p {
+  height: 114px;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.right .bottom ul > li .right .article_info > span {
+  margin-right: 10px;
+}
+.right .bottom ul > li .right .article_info > span i {
+  margin-right: 5px;
+}
+
+.site-card {
+  height: 620px;
+  overflow: visible !important;
+}
+
+.el-card__body {
+  padding: 0px;
+}
+
+.el-table--border::after, .el-table--group::after, .el-table::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  z-index: 1;
+}/*# sourceMappingURL=site.css.map */

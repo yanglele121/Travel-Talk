@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.FollowMapper">
+    <select id="Allfollows" resultType="UserBean">
+        select * from userinfo
+        <where>
+            <if test="user_id!=null">
+                and user_nid in (select user_id from userinfo_follows
+                where fan_id=#{fanId}
+                )
+            </if>
+        </where>
+
+    </select>
+
+    <select id="AllFans" resultType="UserBean">
+        select * from userinfo
+        <where>
+            <if test="fan_id!=null">
+                and user_nid in (select fan_id from userinfo_follows
+                where user_id=#{userId}
+                )
+            </if>
+        </where>
+
+    </select>
+
+    <select id="followCounts" resultType="java.lang.Integer">
+        select count(*) from userinfo_follows where fan_id=#{fanId}
+    </select>
+
+    <select id="fanCounts" resultType="java.lang.Integer">
+        select count(*) from userinfo_follows where user_id=#{userId}
+    </select>
+
+    <select id="isFanOf" resultType="java.lang.Integer">
+        select count(*) from userinfo_follows where user_id=#{userId} and fan_id=#{fanId}
+    </select>
+
+    <insert id="AddFollow">
+        insert into userinfo_follows(user_id, fan_id) VALUES (#{userId},#{fanId})
+    </insert>
+
+    <delete id="DeleteFollow">
+        delete from userinfo_follows where user_id=#{userId} and fan_id=#{fanId}
+    </delete>
+
+</mapper>

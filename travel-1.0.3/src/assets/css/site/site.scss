@@ -1,0 +1,102 @@
+
+
+.right {
+    max-height: 600px;
+    padding-right: 7.5px;
+    .top {
+        margin-bottom: 35px;
+        height:300px;
+        display: flex;
+        justify-content: space-between;
+        .left{
+            width: 50%;
+            img{
+                width:100%;
+                height: 100%;
+            }
+        }
+        .right{
+            text-align: left;
+            width: 49%;
+            padding: 0;
+            >p:nth-child(6){
+                height: 114px;
+                display: -webkit-box;
+                -webkit-line-clamp: 6;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+    .bottom{
+        ul{
+            >li{
+                height: 200px;
+                box-sizing: border-box;
+                text-align: left;
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 5px;
+                .left{
+                    // padding: 0 0 10px 0;
+                    width:40%;
+                    img{
+                        cursor: pointer;
+                        width:100%;
+                        height: 100%;
+                        // border-radius: 15px;
+                        // transition: all 0.3s;
+                        object-fit: cover;
+                    }
+                }
+                .right
+                {
+                    width:59%;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    >p{
+                        height: 114px;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 6;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .article_info{
+                        >span{
+                            margin-right: 10px;
+                            i{
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+                border-bottom: solid 3px var(--main_bg);
+                margin-top:5px;
+            }       
+        } 
+     }
+}
+
+.site-card
+{
+    height: 620px;
+    overflow: visible !important;
+
+}
+
+.el-card__body {
+    padding: 0px;
+}
+
+.el-table--border::after, .el-table--group::after, .el-table::before {
+    content: '';
+    position: absolute;
+    background-color: transparent;
+    z-index: 1;
+}

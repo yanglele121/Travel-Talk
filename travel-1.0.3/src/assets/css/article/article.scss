@@ -1,0 +1,505 @@
+li {
+    list-style-type: none;
+}
+
+.articleUrl {
+
+    position: absolute;
+
+    width: 100%;
+    height: 560px;
+    /*background: #f2f2f2;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .rightulliimg {
+        width: 100%;
+        max-width: 100%;
+        max-height: 700px;
+    }
+
+    z-index:0;
+
+
+
+}
+
+.article {
+    position: relative;
+    margin-left: 260px;
+    margin-right: 260px;
+    width: 1100px;
+    margin-top: 500px;
+
+    .head {
+
+        border-bottom: 1px solid #d7d7d7;
+        margin-top: 30px;
+        flex-direction: row;
+        width: 100%;
+        height: 140px;
+
+        // box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+        .head-left {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            cursor: pointer;
+        }
+
+        .head-right {
+            margin-left: 20px;
+
+            .title {
+                background-color: rgba(255, 255, 255, 0);
+                color: aliceblue;
+                margin-top: 25px;
+            }
+
+            .userinfo {
+                // margin-top: 25px;
+                width: 100%;
+
+                .user {
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+
+                    .username {
+                        width: auto;
+                        color: black;
+                        font-size: 14px;
+                        font-weight: normal;
+                        cursor: pointer;
+                        margin-right: 10px;
+
+                    }
+
+                    .el-button {
+                        height: 30px;
+                        line-height: 10px;
+                        width: 100px;
+                        margin-top: 8px;
+                    }
+                }
+
+
+            }
+
+
+
+        }
+
+    }
+
+    .body {
+        display: flex;
+        margin-top: 20px;
+        width: 100%;
+        height: fit-content;
+        justify-content: space-between;
+
+        .body-left {
+
+            width: 68%;
+            .bottom {
+                border-top: 1px solid #e2e2e2;
+                width: 100%;
+                margin-top: 60px;
+                display: flex;
+                flex-direction: column;
+                .bottom-head {
+                    display: flex;
+                    align-items: center;
+                    height: 75px;
+                    width: 100%;
+                    margin-top: 20px;
+
+                    .comment-title {
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                    }
+
+                    .bottom-head-input {
+                        height: 45px;
+                        border-radius: 5px;
+                        outline: none;
+                        resize: none;
+                        margin-left: 20px;
+                        width: 480px;
+                        font-size: inherit;
+                        font-family: inherit;
+                        line-height: 14px;
+                        padding: 5px 10px;
+                        border: 1px solid #c9ccd0;
+                        background-color: #f1f2f3;
+                    }
+
+                    .bottom-head-button {
+                        margin-left: 20px;
+                        width: 120px;
+                        height: 57px;
+                        border: 0;
+                        border-radius: 5px;
+                        font-size: 20px;
+                        font-weight: 500;
+                        color: #fff;
+                        background-color: rgb(118, 211, 248);
+                        cursor: pointer;
+                        letter-spacing: 2px;
+                    }
+
+                }
+
+                .bottom-content {
+                    width: 100%;
+                    .first {
+                        width: 100%;
+                        position: relative;
+                        margin-top: 20px;
+
+                        .first-head {
+                            width: 100%;
+                            display: flex;
+
+                            .first-head-left {
+                                width: 10%;
+
+                                .comment-title {
+                                    width: 45px;
+                                    height: 45px;
+                                    border-radius: 50%;
+                                    position: relative;
+
+                                }
+                            }
+
+                            .first-head-right {
+                                width: 90%;
+
+                                .first-username {
+                                    position: relative;
+                                    margin-bottom: 10px;
+                                    color: #504f4f;
+                                }
+
+                                .first-time {
+                                    margin-bottom: 10px;
+                                    position: relative;
+                                    display: flex;
+
+                                    color: #767575;
+
+                                    .time {
+                                        margin-right: 15px;
+                                    }
+
+                                    .fa-comment {
+                                        position: relative;
+
+                                    }
+
+                                    .fa-thumbs-up {
+                                        position: relative;
+                                        margin-left: 15px;
+                                    }
+
+                                }
+
+                                .first-comment {
+                                    position: relative;
+                                    margin-bottom: 10px;
+                                    word-wrap: break-word;
+                                    word-break: break-word;
+
+                                }
+                            }
+                        }
+
+                        .first-body {
+                            .second-index {
+                                margin-left: 71px;
+                                margin-bottom: 10px;
+
+                                .second-top {
+                                    display: flex;
+
+                                    .second-top-left {
+                                        .second-img {
+
+                                            width: 30px;
+                                            height: 30px;
+                                            border-radius: 50%;
+
+                                        }
+                                    }
+
+                                    .second-top-right {
+                                        margin-left: 10px;
+
+                                        .second-username {
+                                            margin-bottom: 10px;
+                                            color: #504f4f;
+                                            margin-right: 5px;
+                                        }
+
+                                        .second-comment {
+                                            margin-bottom: 10px;
+                                            word-wrap: break-word;
+                                            word-break: break-word;
+                                            display: flex;
+                                            flex-wrap: wrap;
+                                            .to_reply{
+                                                color:#504f4f;
+                                                margin-left: 5px;
+                                            }
+                                        }
+
+                                        .second-time {
+                                            margin-bottom: 10px;
+                                            display: flex;
+
+                                            color: #767575;
+
+                                            .time {
+                                                margin-right: 15px;
+                                            }
+
+                                            .fa-comment {
+                                                position: relative;
+
+                                            }
+
+                                            .fa-thumbs-up {
+                                                position: relative;
+                                                margin-left: 15px;
+                                            }
+
+                                        }
+                                    }
+                                }
+
+
+
+                            }
+                        }
+
+
+                        .first-right {
+                            position: absolute;
+                            top: 10px;
+                            right: 80px;
+                            flex-direction: row;
+
+
+                        }
+                        }
+
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        .body-right {
+
+            //position: absolute; /* 设置为 fixed 或 absolute 都可以实现悬浮窗效果 */         
+            // left:800px;
+
+            p {
+                margin-bottom: 10px;
+            }
+            width: 26%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .siteUrl {
+
+                width: 100%;
+                height: 210px;
+                z-index: 0;
+            }
+
+            .siteName {
+                font-size: 40px;
+                position: relative;
+                top: -60px;
+                left: 5px;
+                color: aliceblue;
+
+            }
+
+            .float-window {
+
+                // position: absolute;
+                .info {
+
+                    // position: relative;
+                    // top:180px;
+                    .infooutside1 {
+                        height: 210px;
+                        left: 0px;
+                        position: relative;
+
+                        .infoImg {
+                            height: 210px;
+                            position: absolute;
+                            left: 0;
+                            z-index: 0;
+                        }
+
+
+                    }
+
+                    .fa-eye {
+                        position: absolute;
+                        color: aliceblue;
+                        margin-left: 10px;
+                        margin-top: 5px;
+                        z-index: 1;
+                        font-size: 16px;
+                    }
+
+                    .infoArticleTitle {
+                        position: absolute;
+                        color: aliceblue;
+                        // left:10px;
+                        // top:250px;
+                        margin-top: 170px;
+                        margin-left: 10px;
+                        z-index: 1;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+
+                }
+
+                .articleSliderlist {
+                    // position: absolute;
+                    width: 286px;
+                    margin-top: 60px;
+
+                    .slider {
+                        margin-bottom: 10px;
+                        word-wrap: break-word;
+                        word-break: break-word;
+
+                        display: -webkit-box;
+                        /*作为弹性伸缩盒子模型显示*/
+                        -webkit-line-clamp: 1;
+                        /*显示的行数；如果要设置2行加...则设置为2*/
+                        overflow: hidden;
+                        /*超出的文本隐藏*/
+                        text-overflow: ellipsis;
+                        /* 溢出用省略号*/
+                        -webkit-box-orient: vertical;
+                        /*伸缩盒子的子元素排列：从上到下*/
+
+                        color: #999;
+
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.1);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .el-carousel__item h3 {
+                color: #475669;
+                font-size: 18px;
+                opacity: 0.75;
+                line-height: 300px;
+                margin: 0;
+            }
+
+            .el-carousel__item:nth-child(2n) {
+                background-color: #99a9bf;
+            }
+
+            .el-carousel__item:nth-child(2n+1) {
+                background-color: #d3dce6;
+            }
+        }
+    .tagList {
+        margin-top: 20px;
+        border-radius: 5px;
+        border: 1px dashed #d7d7d7;
+        display: block;
+        overflow: hidden;
+
+        >ul {
+            width: 100%;
+            margin-left: 20px;
+
+            li {
+                width: 160px;
+                margin-top: 18px;
+                margin-bottom: 18px;
+                float: left;
+                display: inline;
+                font-size: 18px;
+                height: 22px;
+                line-height: 22px;
+                align-items: center;
+                color: #666;
+                padding-left: 5%;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .reply-comment{
+        display: flex;
+        align-items: center;
+        height: 75px;
+        width: 100%;
+        >img{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+        >textarea{
+            height: 45px;
+            border-radius: 5px;
+            outline: none;
+            resize: none;
+            margin-left: 20px;
+            width: 420px;
+            font-size: inherit;
+            font-family: inherit;
+            line-height: 14px;
+            padding: 5px 10px;
+            border: 1px solid #c9ccd0;
+            background-color: #f1f2f3;
+        }
+        >button{
+            margin-left: 20px;
+            width: 120px;
+            height: 57px;
+            border: 0;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #fff;
+            background-color: rgb(118, 211, 248);
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+    }
+
+.float-window.fixed {
+    position: fixed;
+    top: 80px;
+}
+
+
+.el-carousel__container{
+    height: 210px;
+}

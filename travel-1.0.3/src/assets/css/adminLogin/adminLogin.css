@@ -1,0 +1,28 @@
+.login-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-size: 100% 100%;
+  background-image: url("../../login-background.jpg");
+}
+.login-container .title {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+}
+.login-container .login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  margin: -150px 0 0 -190px;
+  padding: 40px;
+  border-radius: 5px;
+  background: #fff;
+}
+.login-container .login-btn {
+  width: 100%;
+}/*# sourceMappingURL=adminLogin.css.map */

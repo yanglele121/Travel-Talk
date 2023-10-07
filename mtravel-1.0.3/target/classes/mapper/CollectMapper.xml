@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.CollectMapper">
+
+    <select id="isCollected" resultType="java.lang.Integer">
+        select count(*) from userinfo_collects where user_id=#{userId} and article_id=#{articleId}
+    </select>
+
+    <insert id="addCollect">
+        insert into userinfo_collects(user_id, article_id) VALUES (#{userId},#{articleId})
+    </insert>
+
+    <delete id="delCollect">
+        delete from userinfo_collects where user_id=#{userId} and article_id=#{articleId}
+    </delete>
+
+    <select id="getCollectArticleListByUserId" resultType="CollectBean">
+        select * from userinfo_collects where user_id=#{userId}
+    </select>
+    <select id="isCollectedSite" resultType="java.lang.Integer">
+        select count(*) from usersite where user_id=#{userId} and site_id=#{siteId}
+    </select>
+
+    <insert id="addCollectSite">
+        insert into usersite(user_id, site_id) VALUES (#{userId},#{siteId})
+    </insert>
+
+    <delete id="delCollectSite">
+        delete from usersite where user_id=#{userId} and site_id=#{siteId}
+    </delete>
+
+    <select id="getCollectSiteListByUserId" resultType="CollectBean">
+        select * from usersite where user_id=#{userId}
+    </select>
+</mapper>

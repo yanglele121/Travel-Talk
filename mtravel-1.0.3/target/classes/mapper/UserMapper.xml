@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.UserMapper">
+
+    <select id="getUserList" resultType="UserBean">
+        SELECT * FROM userinfo
+    </select>
+    <select id="checkUser" resultType="UserBean">
+        SELECT * FROM userinfo WHERE user_name = #{userName} AND user_password = #{userPassword}
+    </select>
+    <!--模糊查询-->
+    <select id="getUserListByName" resultType="UserBean">
+        SELECT * FROM userinfo WHERE userinfo.user_name LIKE CONCAT('%', #{searchWord}, '%')
+    </select>
+
+    <select id="getUserListBySex" resultType="UserBean">
+        SELECT * FROM userinfo WHERE user_sex = #{userSex}
+    </select>
+
+    <select id="getUserListByAddr" resultType="UserBean">
+        SELECT * FROM userinfo WHERE user_addr LIKE CONCAT('%', #{searchWord}, '%')
+    </select>
+
+    <select id="getUserByName" resultType="UserBean">
+        SELECT * FROM userinfo WHERE user_name = #{userName}
+    </select>
+
+    <select id="getUserByNid" resultType="UserBean">
+        SELECT * FROM userinfo WHERE user_nid = #{userId}
+    </select>
+
+    <select id="FootPrint" resultType="TravelPlaceBean">
+        SELECT * FROM userbeencitys WHERE user_id = #{userId}
+    </select>
+
+    <insert id="AddFootPrint">
+        INSERT INTO userbeencitys(user_id, city_name, travel_time) VALUES (#{userId},#{cityName},#{travelTime})
+    </insert>
+
+    <update id="setIpAndAddr">
+        UPDATE userinfo SET user_ip=#{userIp},user_addr=#{userAddr} WHERE user_nid=#{userNid}
+    </update>
+
+    <insert id="addUser" parameterType="UserBean">
+        INSERT INTO userinfo(
+            user_name, user_password, user_age, user_sex,user_email,
+            user_tel, user_avatar_url,user_desc, date_joined, last_login,
+            user_addr, user_ip)
+        values(
+            #{userName}, #{userPassword}, #{userAge}, #{userSex}, #{userEmail},
+            #{userTel}, #{userAvatarUrl}, #{userDesc}, #{dateJoined}, #{lastLogin},
+            #{userAddr}, #{userIp})
+    </insert>
+
+    <update id="updateUser" parameterType="UserBean">
+        UPDATE userinfo SET user_name = #{userName}, user_password = #{userPassword}, user_age = #{userAge}, user_sex = #{userSex}, user_email = #{userEmail},
+                            user_tel = #{userTel}, user_avatar_url = #{userAvatarUrl}, user_desc = #{userDesc}, date_joined = #{dateJoined}, last_login = #{lastLogin},
+                            user_addr = #{userAddr}, user_ip = #{userIp}
+                        WHERE user_nid = #{userNid}
+    </update>
+
+    <delete id="deleteUserByName" parameterType="String">
+        DELETE FROM userinfo WHERE user_name = #{userName};
+    </delete>
+
+    <delete id="deleteUserByNid" parameterType="int">
+        DELETE FROM userinfo WHERE user_nid = #{userNid};
+    </delete>
+
+    <select id="getUserAddr" resultType="java.util.Map">
+        SELECT SUBSTRING_INDEX(user_addr,"·",1) as name,COUNT(*) as value FROM userinfo GROUP BY SUBSTRING_INDEX(user_addr,"·",1)
+    </select>
+
+    <select id="getUserToAddr" resultType="java.util.Map">
+        SELECT SUBSTRING_INDEX(city_name,"·",1) as name,COUNT(*) as value FROM userbeencitys GROUP BY SUBSTRING_INDEX(city_name,"·",1)
+    </select>
+
+    <select id="getUserSexRate" resultType="java.util.Map">
+        SELECT user_sex as name,COUNT(*) as value  FROM userinfo GROUP BY user_sex
+    </select>
+
+    <select id="getLoginCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM userinfo WHERE YEAR(last_login) = #{year} AND MONTH(last_login)=#{month} AND DAY(last_login)=#{day}
+    </select>
+
+    <select id="getSignCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM userinfo WHERE YEAR(date_joined) = #{year} AND MONTH(date_joined)=#{month} AND DAY(date_joined)=#{day}
+    </select>
+
+</mapper>

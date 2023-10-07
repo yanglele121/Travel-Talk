@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.TagMapper">
+    <select id="getArticleTags" resultType="com.example.travel.vo.TagVo">
+        SELECT tfa.tag_article_nid, tfa.article_tag, COUNT(at.article_id) AS article_count
+        FROM tags_for_article AS tfa
+                 LEFT JOIN articletags AS at ON tfa.tag_article_nid = at.tag_id
+        GROUP BY tfa.tag_article_nid, tfa.article_tag
+        ORDER BY article_count DESC
+    </select>
+
+    <insert id="AddArticleTags" parameterType="ArticleTagsBean">
+        INSERT INTO articletags(article_id, tag_id) VALUES(#{articleId},#{tagId})
+    </insert>
+
+    <select id="getArticleTagsByArticleId" resultType="Integer">
+        SELECT tag_id FROM articletags WHERE article_id=#{articleId}
+    </select>
+
+    <select id="getTagsForArticleBeanByTagId" resultType="TagsForArticleBean">
+        SELECT * FROM tags_for_article WHERE tag_article_nid = #{tagArticleNid}
+    </select>
+
+    <select id="haveTag" resultType="Integer">
+        SELECT COUNT(*) FROM articletags WHERE article_id=#{articleId} AND tag_id=#{tagId}
+    </select>
+
+    <select id="checkTag" resultType="Integer">
+        SELECT COUNT(*) FROM tags_for_article WHERE article_tag=#{articleTag}
+    </select>
+
+    <insert id="addtag">
+        INSERT INTO tags_for_article(article_tag) VALUES (#{articleTag})
+    </insert>
+
+    <update id="updateTag">
+        UPDATE tags_for_article SET article_tag=#{articleTag} WHERE tag_article_nid=#{tagArticleNid}
+    </update>
+
+    <delete id="deleteTag">
+        DELETE FROM tags_for_article WHERE tag_article_nid=#{tagArticleNid}
+    </delete>
+
+    <delete id="deleteTagArticle">
+        DELETE FROM articletags WHERE tag_id=#{tagId}
+    </delete>
+</mapper>

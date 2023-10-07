@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.AnnouncementMapper">
+    <select id="getSysAnnouncement" resultType="AnnouncementBean">
+        SELECT * FROM announcement ORDER BY create_date DESC
+    </select>
+    <insert id="addAnnouncement">
+        INSERT INTO announcement(announcement_content, create_date,announcement_title,cover_url)
+        VALUES (#{announcementContent},#{createDate},#{announcementTitle},#{coverUrl})
+    </insert>
+
+    <update id="updateAnnouncement">
+        UPDATE announcement SET announcement_content=#{announcementContent},
+                                announcement_title=#{announcementTitle},
+                                cover_url=#{coverUrl},
+                                create_date=#{createDate} WHERE announcement_nid=#{announcementNid}
+    </update>
+    <select id="TopAnnouncement" resultType="AnnouncementBean">
+        SELECT * FROM announcement ORDER BY create_date DESC LIMIT 5
+    </select>
+</mapper>

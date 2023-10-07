@@ -1,0 +1,72 @@
+.content-box {
+  position: absolute;
+  left: 150px;
+  right: 0;
+  top: 20px;
+  bottom: 0;
+  overflow-y: scroll;
+  transition: left 0.3s ease-in-out;
+  padding: 20px;
+  position: absolute;
+  -webkit-transition: left .3s ease-in-out;
+  transition: left .3s ease-in-out;
+  background: #f0f0f0;
+}
+
+.container {
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+
+  .card-content {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+    width: 100%;
+    padding-left: 20%;
+    text-align: center;
+    cursor: pointer;
+
+    .card-left {
+      display: flex;
+      font-size: 2rem;
+    }
+
+    .card-right {
+      flex: 1;
+      font-size: 14px;
+
+      .card-num {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+    }
+
+  }
+
+
+
+  h3 {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .cav-info {
+    border-radius: 6px;
+    overflow: hidden;
+    height: 300px;
+    background-color: white;
+  }
+  .cav-info_1{
+    border-radius: 6px;
+    overflow: hidden;
+    height: 520px;
+    background-color: white;
+    padding: 10px;
+  }
+
+}

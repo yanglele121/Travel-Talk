@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.UserSiteMapper">
+    <select id="getUserSiteList" resultType="UserSiteBean">
+        SELECT * FROM usersite where user_id=#{userId}
+    </select>
+
+    <select id="getUserSite" resultType="UserSiteBean">
+        SELECT * FROM usersite where user_id=#{userId} and site_id=#{siteId}
+    </select>
+    <insert id="addUserSite">
+        INSERT INTO usersite(user_id, site_id) VALUES (#{userId},#{siteId})
+    </insert>
+    <delete id="deleteUserSite" parameterType="Integer">
+        DELETE FROM usersite WHERE user_id=#{userId} and site_id=#{siteId}
+    </delete>
+
+</mapper>

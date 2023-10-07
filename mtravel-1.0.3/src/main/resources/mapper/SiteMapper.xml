@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.SiteMapper">
+
+    <select id="getSiteList" resultType="SiteBean">
+        SELECT *
+        FROM siteinfo ORDER BY site_score DESC
+    </select>
+
+    <!--模糊查询-->
+    <select id="getSiteListByTitle" resultType="SiteBean">
+        SELECT * FROM siteinfo WHERE site_name LIKE CONCAT('%', #{searchWord}, '%')
+    </select>
+
+    <select id="getSiteListByArea" resultType="SiteBean">
+        SELECT * FROM siteinfo WHERE site_addr LIKE CONCAT('%', #{searchWord}, '%')
+    </select>
+
+
+    <select id="getHotCity" resultType="java.util.Map">
+        SELECT site_addr, COUNT(*) AS count
+        FROM siteinfo
+        GROUP BY site_addr
+        ORDER BY count DESC
+        LIMIT 12
+    </select>
+
+    <select id="getHotSite" resultType="SiteBean">
+        SELECT *
+        FROM siteinfo
+        WHERE site_nid IN (
+        SELECT site_id
+        FROM (
+        SELECT site_id, COUNT(*) AS count
+        FROM articles
+        WHERE create_date &lt; NOW() AND create_date >= DATE_SUB(NOW(), INTERVAL 15 DAY) AND article_status = 1
+        GROUP BY site_id
+        ORDER BY count DESC
+        ) AS t
+        )
+        ORDER BY site_score DESC
+        LIMIT 2
+    </select>
+
+    <select id="getLocalHotSite" resultType="SiteBean">
+        SELECT si.site_nid, si.site_name, si.site_addr, si.site_score, si.site_desc, si.site_pic_url, si.site_url
+        FROM siteinfo si
+        JOIN (
+        SELECT site_id, COUNT(*) AS count
+        FROM articles
+        WHERE site_id IN (
+        SELECT site_nid
+        FROM siteinfo
+        WHERE site_addr = #{siteAddr}
+        ) AND create_date &lt; NOW() AND create_date >= DATE_SUB(NOW(), INTERVAL 15 DAY) AND article_status = 1
+        GROUP BY site_id
+        ORDER BY count DESC
+        LIMIT 2
+        ) AS t ON si.site_nid = t.site_id
+        WHERE si.site_addr = #{siteAddr}
+        ORDER BY si.site_score DESC;
+
+    </select>
+
+    <select id="getSiteByNid" resultType="SiteBean">
+        SELECT *
+        FROM siteinfo
+        WHERE site_nid = #{siteNid}
+    </select>
+    <select id="getSiteByName" resultType="SiteBean">
+        SELECT * FROM siteinfo WHERE site_name=#{siteName}
+    </select>
+    <insert id="addSite" parameterType="SiteBean">
+        INSERT INTO siteinfo(site_name, site_addr, site_score, site_desc, site_pic_url, site_url)
+        values (#{siteName}, #{siteAddr}, #{siteScore}, #{siteDesc}, #{sitePicUrl}, #{siteUrl})
+    </insert>
+
+    <delete id="deleteSiteByNid" parameterType="int">
+        SET foreign_key_checks = 0;
+        DELETE
+        FROM siteinfo
+        WHERE site_nid = #{siteNid};
+        SET foreign_key_checks = 1;
+    </delete>
+
+    <update id="updateSite" parameterType="SiteBean">
+        UPDATE siteinfo
+        SET site_name    = #{siteName},
+            site_addr    = #{siteAddr},
+            site_score   = #{siteScore},
+            site_desc    = #{siteDesc},
+            site_pic_url = #{sitePicUrl},
+            site_url     = #{siteUrl}
+        WHERE site_nid = #{siteNid}
+    </update>
+
+    <select id="getSiteNum" resultType="java.lang.Integer">
+        SELECT COUNT(*) from siteinfo
+    </select>
+
+</mapper>

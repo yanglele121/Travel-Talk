@@ -1,0 +1,40 @@
+nav {
+  width: calc(100% - 240px);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all 0.4s;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--nav_bg);
+}
+nav .left {
+  width: 70%;
+}
+nav .right {
+  width: 30%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+nav .right .el-dropdown {
+  color: var(--card_bg);
+  font-size: 14px;
+}
+nav .right .el-dropdown span {
+  cursor: pointer;
+}
+nav a {
+  margin-right: 20px;
+  color: #000;
+}
+nav a:last-child {
+  margin-right: 0;
+}
+nav a.active {
+  color: var(--active);
+}/*# sourceMappingURL=nav.css.map */

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.CommentMapper">
+
+    <select id="getCommentList" resultType="com.example.travel.vo.CommentVo">
+        SELECT * FROM comment
+    </select>
+    <!--模糊查询-->
+    <select id="getCommentListByContent" resultType="com.example.travel.vo.CommentVo">
+        SELECT * FROM comment WHERE comment_content LIKE CONCAT('%',#{searchWord},'%')
+    </select>
+
+
+    <select id="getCommentByNid" resultType="CommentBean">
+        SELECT * FROM comment WHERE comment_nid = #{commentNid};
+    </select>
+
+    <select id="getCommentListByParentNid" resultType="CommentBean">
+        SELECT * FROM comment WHERE parent_comment_id = #{parentCommentId};
+    </select>
+
+    <select id="getSonCommentListByRootNid" resultType="CommentBean">
+        SELECT * FROM comment WHERE root_comment_id = #{rootCommentId} AND root_comment_id != comment_nid
+    </select>
+
+    <select id="getRootCommentListByArticleNid" resultType="CommentBean">
+        SELECT * FROM comment WHERE root_comment_id = comment_nid AND article_id = #{articleId};
+    </select>
+
+    <select id="getCommentListByUserId" resultType="com.example.travel.vo.CommentVo">
+        SELECT * FROM comment WHERE user_id = #{userId}
+    </select>
+    <select id="getCommentListByArticleId" resultType="com.example.travel.vo.CommentVo">
+        SELECT * FROM comment WHERE article_id=#{articleId}
+    </select>
+
+    <insert id="addComment">
+        INSERT INTO comment(comment_content, user_id, article_id,root_comment_id,parent_comment_id,
+                             star_count, comment_count, create_date)
+        VALUES (#{commentContent},#{userId},#{articleId},#{rootCommentId},#{parentCommentId},
+                #{starCount},#{commentCount},#{createDate})
+    </insert>
+
+    <update id="updateComment" parameterType="commentBean">
+        UPDATE comment SET comment_content = #{commentContent}, user_id = #{userId}, article_id = #{articleId}, root_comment_id = #{rootCommentId},
+                           parent_comment_id = #{parentCommentId}, star_count = #{starCount}, comment_count = #{commentCount}, create_date = #{createDate}
+        WHERE comment_nid = #{commentNid};
+    </update>
+
+    <delete id="deleteCommentByNid" parameterType="int">
+        DELETE FROM comment WHERE comment_nid = #{commentNid};
+    </delete>
+
+    <delete id="deleteCommentByParentNid" parameterType="int">
+        DELETE FROM comment WHERE comment_nid = #{parentCommentNid} OR parent_comment_id = #{parentCommentId};
+    </delete>
+
+    <delete id="deleteCommentByArticleNid" parameterType="int">
+        DELETE FROM comment WHERE article_id = #{articleId};
+    </delete>
+
+    <select id="getLastNid" resultType="int">
+        SELECT LAST_INSERT_ID()
+    </select>
+
+    <select id="getCommentNum" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM comment
+    </select>
+
+</mapper>

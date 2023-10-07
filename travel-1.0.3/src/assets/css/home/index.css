@@ -1,0 +1,434 @@
+.card .title {
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--bg);
+  padding: 20px 20px 10px 20px;
+  background-color: var(--card_bg);
+}
+.card .title h2 {
+  font-size: 20px;
+}
+.card .title > div a {
+  font-size: 14px;
+}
+.card .body {
+  padding: 10px 20px 20px 20px;
+  background-color: var(--card_bg);
+  border-radius: 0 0 5px 5px;
+}
+
+a {
+  color: var(--font_2);
+}
+
+#app {
+  width: 100%;
+}
+#app .home main {
+  width: calc(100% - 240px);
+  padding: 20px 120px;
+  min-height: 600px;
+  background-color: var(--main_bg);
+  color: var(--main_color);
+  display: flex;
+  justify-content: center;
+}
+#app .home main .main {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+#app .home main .main .left {
+  width: 68%;
+}
+#app .home main .main .left .hot_site > .title .switch_site_category span {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-right: 5px;
+}
+#app .home main .main .left .hot_site > .title .switch_site_category span:hover {
+  color: var(--active);
+}
+#app .home main .main .left .hot_site > .title .switch_site_category span[active] {
+  color: var(--active);
+}
+#app .home main .main .left .hot_site > .body {
+  padding: 0 20px;
+}
+#app .home main .main .left .hot_site > .body > ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#app .home main .main .left .hot_site > .body > ul > li {
+  width: 50%;
+  box-sizing: border-box;
+  display: flex;
+  padding: 10px 0;
+}
+#app .home main .main .left .hot_site > .body > ul > li:nth-child(1), #app .home main .main .left .hot_site > .body > ul > li:nth-child(3), #app .home main .main .left .hot_site > .body > ul > li:nth-child(5) {
+  border-right: 1px solid var(--bg);
+  padding: 10px 10px 10px 0;
+}
+#app .home main .main .left .hot_site > .body > ul > li:nth-child(2), #app .home main .main .left .hot_site > .body > ul > li:nth-child(4), #app .home main .main .left .hot_site > .body > ul > li:nth-child(6) {
+  padding: 10px 0 10px 10px;
+}
+#app .home main .main .left .hot_site > .body > ul > li:nth-child(1), #app .home main .main .left .hot_site > .body > ul > li:nth-child(2), #app .home main .main .left .hot_site > .body > ul > li:nth-child(3), #app .home main .main .left .hot_site > .body > ul > li:nth-child(4) {
+  border-bottom: 1px solid var(--bg);
+}
+#app .home main .main .left .hot_site > .body > ul > li .left {
+  width: 60%;
+  height: 180px;
+}
+#app .home main .main .left .hot_site > .body > ul > li .left > div {
+  overflow: hidden;
+  height: 100%;
+}
+#app .home main .main .left .hot_site > .body > ul > li .left img {
+  border-radius: 5px;
+  transition: all 0.3s;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#app .home main .main .left .hot_site > .body > ul > li .left img:hover {
+  transform: scale(1.1);
+}
+#app .home main .main .left .hot_site > .body > ul > li .right {
+  width: 40%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#app .home main .main .left .hot_site > .body > ul > li .right h3 {
+  font-size: 18px;
+}
+#app .home main .main .left .hot_site > .body > ul > li .right p {
+  height: 85px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}
+#app .home main .main .left .hot_site > .body > ul > li .right span {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--font_2);
+}
+#app .home main .main .left > div {
+  margin-bottom: 20px;
+}
+#app .home main .main .left .all_articles > .body {
+  background-color: transparent;
+  padding: 0;
+}
+#app .home main .main .left .all_articles > .body > ul.detail {
+  width: 100%;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li {
+  padding: 15px 0;
+  height: 150px;
+  display: flex;
+  background-color: var(--card_bg);
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .left {
+  width: 220px;
+  height: 150px;
+  box-sizing: border-box;
+  float: left;
+  margin-right: 10px;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .left > div {
+  width: 100%;
+  overflow: hidden;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .left img {
+  transition: all 0.3s;
+  width: 220px;
+  height: 150px;
+  cursor: pointer;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .left img:hover {
+  transform: scale(1.1);
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .right {
+  float: right;
+  height: 150px;
+  width: 680px;
+  position: relative;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .right > h2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .right p {
+  height: 80px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .right .article_info {
+  font-size: 14px;
+  color: var(--font_2);
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .right .article_info > span {
+  margin-right: 10px;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .right .article_info > span i {
+  margin-right: 5px;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .right > a {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  background-color: var(--active);
+  color: var(--card_bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+#app .home main .main .left .all_articles > .body > ul.detail > li .right > a a {
+  color: var(--card_bg);
+}
+#app .home main .main .right {
+  width: 30%;
+}
+#app .home main .main .right > div {
+  margin-bottom: 20px;
+}
+#app .home main .main .right .announcement > .body li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+#app .home main .main .right .announcement > .body li .notice_info {
+  position: relative;
+  margin-bottom: 5px;
+}
+#app .home main .main .right .announcement > .body li .notice_info span {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#app .home main .main .right .me_card {
+  position: relative;
+  background-color: var(--card_bg);
+  width: 100%;
+  height: 200px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+  border-radius: 15px;
+  transition: all 0.4s ease-in-out;
+  margin-top: 70px;
+}
+#app .home main .main .right .me_card a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+#app .home main .main .right .me_card h1 {
+  font-weight: 500;
+  font-size: 23px;
+}
+#app .home main .main .right .me_card h2 {
+  font-weight: 500;
+  font-size: 15px;
+  color: darkgrey;
+}
+#app .home main .main .right .me_card h3 {
+  font-weight: 500;
+  font-size: 18px;
+}
+#app .home main .main .right .me_card h4 {
+  font-weight: 500;
+  font-size: 14px;
+  color: darkgrey;
+}
+#app .home main .main .right .me_card:hover {
+  height: 450px;
+}
+#app .home main .main .right .pb {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 160px;
+  width: 160px;
+  border-radius: 15px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+  transition: all 0.4s ease-in-out;
+}
+#app .home main .main .right .me_card:hover .pb {
+  height: 250px;
+  width: 250px;
+}
+#app .home main .main .right .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 125px 0px 10px 0px;
+  transition: all 0.4s ease-in-out;
+}
+#app .home main .main .right .me_card:hover .info {
+  display: flex;
+  padding: 230px 0px 10px 0px;
+}
+#app .home main .main .right .detail {
+  position: relative;
+  display: flex;
+  opacity: 0;
+  z-index: -10;
+  justify-content: space-between;
+  padding: 10px 50px;
+  transform: translateX(-20px);
+  transition-timing-function: linear;
+  transition-duration: 0s, 0.2s, 0.2s;
+  transition-property: z-index, opacity, transform;
+  transition-delay: 0.2s, 0s, 0s;
+}
+#app .home main .main .right .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#app .home main .main .right .buttons {
+  position: relative;
+  display: flex;
+  opacity: 0;
+  z-index: -10;
+  padding: 10px 50px;
+  justify-content: space-between;
+  transform: translateX(-20px);
+  transition-timing-function: linear;
+  transition-duration: 0s, 0.2s, 0.2s;
+  transition-property: z-index, opacity, transform;
+  transition-delay: 0.2s, 0s, 0s;
+}
+#app .home main .main .right button {
+  padding: 10px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#app .home main .main .right #follow {
+  background-color: rgba(0, 173, 234, 0.7);
+  border: 1px solid rgba(0, 173, 234, 0.7);
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.3s linear;
+}
+#app .home main .main .right #follow:hover {
+  background-color: #00adea;
+}
+#app .home main .main .right #message {
+  background-color: transparent;
+  border: 1px solid grey;
+  color: grey;
+  font-weight: 500;
+  transition: all 0.3s linear;
+}
+#app .home main .main .right #message:hover {
+  background-color: darkgrey;
+  color: #fff;
+}
+#app .home main .main .right .me_card:hover .detail,
+#app .home main .main .right .me_card:hover .buttons {
+  opacity: 1;
+  z-index: 0;
+  transform: translateX(0px);
+  transition-timing-function: linear;
+  transition-duration: 0s, 0.3s, 0.3s;
+  transition-property: z-index, opacity, transform;
+  transition-delay: 0s, 0.2s, 0.2s;
+}
+#app .home main .main .right .tags > .body {
+  position: relative;
+}
+#app .home main .main .right .tags > .body ul {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+@keyframes move_box {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: calc(100% - 20px);
+    top: 0;
+  }
+  50% {
+    left: calc(100% - 20px);
+    top: calc(100% - 20px);
+  }
+  75% {
+    left: 0;
+    top: calc(100% - 20px);
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+#app .home main .main .right .tags > .body ul::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  content: "";
+  background-color: var(--active);
+  animation-name: move_box;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+#app .home main .main .right .tags > .body ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33.33%;
+  height: 40px;
+  box-sizing: border-box;
+}
+#app .home main .main .right .tags > .body ul li:nth-child(6n+1), #app .home main .main .right .tags > .body ul li:nth-child(6n+2), #app .home main .main .right .tags > .body ul li:nth-child(6n+3) {
+  background-color: var(--bg);
+}
+#app .home main .main .right .tags > .body ul li:nth-child(3n+1), #app .home main .main .right .tags > .body ul li:nth-child(3n+2) {
+  border-right: 1px solid var(--bg_darken);
+}
+#app .home main .main .right .tags > .body ul li a {
+  color: var(--font_1);
+  font-size: 14px;
+}
+
+.el-badge__content.is-fixed {
+  position: absolute;
+  top: 12px;
+  right: -3px;
+  transform: translateY(-50%) translateX(100%);
+}/*# sourceMappingURL=index.css.map */
